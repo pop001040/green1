@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #b0c947;
+    direction: rtl;
+}
+
+.main-header {
+    background-color: #006400;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.main-header h1 {
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.container {
+    padding: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#floating-total {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.total-box {
+    background-color: #FFE135;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+    width: fit-content;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.total {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.order-now {
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.section-title {
+    color: #006400;
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #FFA500;
+    display: flex;
+    max-width: 600px;
+}
+
+.project-image {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin-left: 15px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #ddd;
+}
+
+.project-card:first-of-type .project-image {
+    background-image: url('./images/lettuce-farm.jpg.jpg');
+}
+
+.project-info {
+    flex: 1;
+}
+
+.project-title {
+    color: #2196F3;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.project-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.detail-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.capital {
+    color: #2196F3;
+}
+
+.profit {
+    color: #FF6B6B;
+}
+
+.cost {
+    color: #673AB7;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.checkbox-container label {
+    font-size: 14px;
+    color: #666;
+    margin-right: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        flex-direction: column;
+    }
+    
+    .project-image {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+}
+
+/* Media Queries للأجهزة المختلفة */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+        padding-bottom: 80px;
+    }
+
+    .project-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .project-image {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 0 15px 0;
+    }
+
+    .project-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    #floating-total {
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        width: auto;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .total-box {
+        width: auto;
+        border-radius: 10px;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .order-now {
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-header h1 {
+        font-size: 1.5em;
+    }
+
+    .section-title {
+        font-size: 1.2em;
+    }
+
+    .project-title {
+        font-size: 1em;
+    }
+
+    .detail-item {
+        font-size: 0.9em;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+
+    #floating-total {
+        padding: 8px;
+    }
+
+    .total {
+        font-size: 14px;
+    }
+
+    .order-now {
+        width: 150px;
+        padding: 6px 15px;
+    }
+}
