@@ -129,4 +129,22 @@ document.addEventListener('DOMContentLoaded', function() {
             floatingTotal.style.top = (headerBottom + 20) + 'px';
         }
     });
+
+    // التحكم في الزر المتحرك
+    window.addEventListener('scroll', function() {
+        const floatingButton = document.querySelector('.floating-button');
+        const header = document.querySelector('header');
+        const headerBottom = header.getBoundingClientRect().bottom;
+        
+        if (window.scrollY > 100) {
+            if (window.innerHeight - floatingButton.offsetHeight < headerBottom) {
+                floatingButton.style.bottom = (headerBottom - window.innerHeight + floatingButton.offsetHeight + 20) + 'px';
+            } else {
+                floatingButton.style.bottom = '20px';
+            }
+            floatingButton.style.opacity = '1';
+        } else {
+            floatingButton.style.opacity = '0';
+        }
+    });
 });
