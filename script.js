@@ -113,38 +113,17 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = `https://wa.me/201030435987?text=${encodeURIComponent(message)}`;
     });
 
-    // التحكم في حركة مربع الإجمالي
+    // التحكم في موضع العداد العائم
     window.addEventListener('scroll', function() {
-        const header = document.querySelector('.main-header');
-        const floatingTotal = document.getElementById('floating-total');
-        const headerRect = header.getBoundingClientRect();
-        const headerBottom = header.offsetTop + header.offsetHeight;
-        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollPosition > headerBottom - 20) {
+        const headerBottom = header.getBoundingClientRect().bottom;
+        const headerTop = header.getBoundingClientRect().top;
+        
+        if (window.scrollY > headerBottom) {
             floatingTotal.style.position = 'fixed';
-            floatingTotal.style.top = '20px';
+            floatingTotal.style.bottom = '20px';
         } else {
             floatingTotal.style.position = 'absolute';
-            floatingTotal.style.top = (headerBottom + 20) + 'px';
-        }
-    });
-
-    // التحكم في الزر المتحرك
-    window.addEventListener('scroll', function() {
-        const floatingButton = document.querySelector('.floating-button');
-        const header = document.querySelector('header');
-        const headerBottom = header.getBoundingClientRect().bottom;
-        
-        if (window.scrollY > 100) {
-            if (window.innerHeight - floatingButton.offsetHeight < headerBottom) {
-                floatingButton.style.bottom = (headerBottom - window.innerHeight + floatingButton.offsetHeight + 20) + 'px';
-            } else {
-                floatingButton.style.bottom = '20px';
-            }
-            floatingButton.style.opacity = '1';
-        } else {
-            floatingButton.style.opacity = '0';
+            floatingTotal.style.bottom = (headerBottom - headerTop + 20) + 'px';
         }
     });
 });
